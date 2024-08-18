@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   icons: '/ModHead.png',
 };
 
+function randomColor() {
+  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+}
+
 export default function Home() {
   return (
     <section className='flex h-screen items-center justify-center'>
@@ -20,7 +24,7 @@ export default function Home() {
           alt='mcl-icon'
         />
       </div>
-      <Mod width='50' height='50' color='#0cc243' />
+      <Mod size={50} color={randomColor()} />
     </section>
   );
 }
