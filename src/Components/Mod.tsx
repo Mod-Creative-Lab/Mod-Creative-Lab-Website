@@ -13,6 +13,7 @@ export default function Mod({ color, size }: Props) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [rotation, setRotation] = useState(0);
   const [canMove, setCanMove] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   function getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -21,8 +22,8 @@ export default function Mod({ color, size }: Props) {
   useEffect(() => {
     const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
     const startMoving = async () => {
-      //await delay(getRandomNumber(0, 7000));
-      await delay(getRandomNumber(0, 0));
+      await delay(getRandomNumber(0, 7000));
+      //await delay(getRandomNumber(0, 0));
       setCanMove(true);
     };
     startMoving();
@@ -60,19 +61,19 @@ export default function Mod({ color, size }: Props) {
     if (elementRef.current != null) {
       const rect = elementRef.current.getBoundingClientRect();
       if (
-        rect.top >= window.innerHeight ||
+        rect.top >= window.innerHeight / 1.1 ||
         rect.bottom <= 0 ||
-        rect.left >= window.innerWidth ||
+        rect.left >= window.innerWidth / 1.03 ||
         rect.right <= 0
       ) {
-        setCanMove(false);
+        setVisible(false);
       }
     }
   }, [position]);
 
   return (
     <motion.div
-      className='absolute'
+      className={`absolute h-0 w-0 ${visible ? 'visible' : 'hidden'}`}
       style={{ rotate: rotation }}
       animate={{
         x: position.x,
