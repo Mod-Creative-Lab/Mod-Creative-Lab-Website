@@ -9,7 +9,16 @@ export const metadata: Metadata = {
 };
 
 function randomColor() {
-  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+  const colorList = [
+    '#14FBA8',
+    '#2614FB',
+    '#FB7E14',
+    '#E9FB14',
+    '#FB1483',
+    '#34FB14',
+    '#7A14FB',
+  ];
+  return colorList[Math.floor(Math.random() * colorList.length)];
 }
 
 export default function Home() {
@@ -24,11 +33,7 @@ export default function Home() {
           alt='mcl-icon'
         />
       </div>
-      {Array(100)
-        .fill(0)
-        .map((num, i) => (
-          <Mod key={i} size={50} color={randomColor()} />
-        ))}
+      <Mod size={50} color={randomColor()} />
     </section>
   );
 }
