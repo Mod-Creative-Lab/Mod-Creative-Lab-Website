@@ -56,7 +56,7 @@ export default function Mod({ color, size }: Props) {
         setTimeout(() => setHasHitBound(false), 10000);
       }
     }
-  }, [position, hasClicked]);
+  }, [position, hasHitBound, hasClicked]);
 
   const ModAlive = () => (
     <svg
