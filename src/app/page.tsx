@@ -34,7 +34,11 @@ export default function Home() {
           alt='mcl-icon'
         />
       </div>
-      <Mod size={50} color={randomColor()} />
+      {Array(50)
+        .fill(0)
+        .map((num, i) => (
+          <Mod key={i} size={50} color={randomColor()} />
+        ))}
     </section>
   );
 }

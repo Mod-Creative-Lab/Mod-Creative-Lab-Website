@@ -22,16 +22,23 @@ export default function Mod({ color, size }: Props) {
   }
 
   useEffect(() => {
+    setPosition({
+      x: getRandomNumber(-window.innerWidth / 4, window.innerWidth / 4),
+      y: getRandomNumber(-window.innerHeight / 4, window.innerHeight / 4),
+    });
+  }, []);
+
+  useEffect(() => {
     if (!hasClicked) {
       const interval = setInterval(() => {
         setPosition((prevPosition) => {
           let newPosition = {
             x:
               prevPosition.x +
-              direction * Math.cos((rotation * Math.PI) / 180) * 2,
+              direction * Math.sin(rotation * (Math.PI / 180)) * 2,
             y:
               prevPosition.y +
-              direction * Math.sin((rotation * Math.PI) / 180) * 2,
+              direction * -Math.cos(rotation * (Math.PI / 180)) * 2,
           };
 
           return newPosition;
@@ -52,7 +59,7 @@ export default function Mod({ color, size }: Props) {
         rect.right <= 0
       ) {
         setHasHitBound(true);
-        setDirection((prevDirection) => prevDirection * -1);
+        setRotation((prevRotation) => (prevRotation + 180) % 360);
         setTimeout(() => setHasHitBound(false), 10000);
       }
     }
@@ -455,7 +462,7 @@ export default function Mod({ color, size }: Props) {
         setHasClicked(true);
         setRandomDead(getRandomNumber(0, 2));
       }}
-      className='absolute h-0 w-0 cursor-pointer'
+      className='absolute h-0 w-0 cursor-pointer opacity-70'
       style={{ rotate: rotation }}
       animate={{
         x: position.x,
