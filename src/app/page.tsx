@@ -26,7 +26,8 @@ export default function Home() {
     <section className='flex h-screen items-center justify-center'>
       <div className='w-1/3'>
         <Image
-          className='w-full object-cover'
+          draggable={false}
+          className='w-full select-none object-cover'
           width={0}
           height={0}
           src='/mcl.svg'
