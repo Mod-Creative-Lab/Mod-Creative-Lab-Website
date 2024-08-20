@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { randomColor } from '@/utils/randomColor';
-import Mod from '@/Components/Mod';
+import Mod from '@/components/Mod';
 
 type Props = {};
 

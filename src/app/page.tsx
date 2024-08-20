@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import FirstSection from '@/Components/FirstSection';
+import FirstSection from '@/components/FirstSection';
 
 export const metadata: Metadata = {
   title: 'Mod Creative Lab',
