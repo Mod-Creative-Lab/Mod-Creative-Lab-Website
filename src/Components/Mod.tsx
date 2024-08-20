@@ -53,9 +53,9 @@ export default function Mod({ color, size }: Props) {
     if (elementRef.current != null && !hasHitBound && !hasClicked) {
       const rect = elementRef.current.getBoundingClientRect();
       if (
-        rect.top >= window.innerHeight / 1.1 ||
+        rect.top >= window.innerHeight / 1.15 ||
         rect.bottom <= 0 ||
-        rect.left >= window.innerWidth / 1.03 ||
+        rect.left >= window.innerWidth / 1.15 ||
         rect.right <= 0
       ) {
         setHasHitBound(true);
