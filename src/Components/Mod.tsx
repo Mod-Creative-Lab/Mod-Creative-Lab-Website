@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import React, { useState, useEffect, useRef } from 'react';
+import { getRandomNumber } from '@/utils/randomNumber';
 
 type Props = {
   size: number;
@@ -16,10 +17,6 @@ export default function Mod({ color, size }: Props) {
   const [hasHitBound, setHasHitBound] = useState(false);
   const [hasClicked, setHasClicked] = useState(false);
   const [randomDead, setRandomDead] = useState(0);
-
-  function getRandomNumber(min: number, max: number): number {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
 
   useEffect(() => {
     setPosition({
