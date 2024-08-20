@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { randomColor } from '@/utils/randomColor';
-import Ant from '@/components/Ant/Ant';
+import Ant from '@/Components/Ant/Ant';
 
 type Props = {};
 
