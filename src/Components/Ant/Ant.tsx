@@ -30,7 +30,7 @@ export default function Ant({ containerRef, color }: AntProps) {
       x: getRandomNumber(-containerRect.width / 4, containerRect.width / 4),
       y: getRandomNumber(-containerRect.height / 4, containerRect.height / 4),
     });
-  }, []);
+  }, [containerRef]);
 
   //Move forward everyframe
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function Ant({ containerRef, color }: AntProps) {
         setTimeout(() => setHasHitBound(false), 1000);
       }
     }
-  }, [position, hasHitBound, hasClicked]);
+  }, [position, hasHitBound, hasClicked, containerRef]);
 
   function onClickAnt() {
     if (hasClicked || audioRef.current == null) return;
