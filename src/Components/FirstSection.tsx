@@ -11,7 +11,7 @@ export default function FirstSection({}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className='relative h-screen border-2 border-red-500 p-10 md:p-32 xl:p-80'>
+    <section className='relative h-screen p-10 md:p-32 xl:p-80'>
       <div
         ref={containerRef}
         className='flex h-full w-full items-center justify-center overflow-hidden'
@@ -167,6 +167,11 @@ export default function FirstSection({}: Props) {
             />
           </svg>
         </div>
+        {Array(50)
+          .fill(0)
+          .map((num, i) => (
+            <Ant key={i} containerRef={containerRef} color={randomColor()} />
+          ))}
       </div>
     </section>
   );
