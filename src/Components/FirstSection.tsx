@@ -26,11 +26,6 @@ export default function FirstSection({}: Props) {
             alt='mcl-icon'
           />
         </div>
-        {Array(50)
-          .fill(0)
-          .map((num, i) => (
-            <Ant key={i} containerRef={containerRef} color={randomColor()} />
-          ))}
       </div>
     </section>
   );
