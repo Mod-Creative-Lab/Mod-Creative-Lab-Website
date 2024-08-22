@@ -1,31 +1,57 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
 import ModSVG from './ModSVG';
 import CreativeSVG from './CreativeSVG';
+import { Raleway } from 'next/font/google';
+import ModHeadSVG from './ModHead.SVG';
 
 type Props = {};
 
+const raleway = Raleway({ subsets: ['latin'] });
+
 export default function SecondSection({}: Props) {
   return (
-    <div className='flex h-screen items-center justify-center border-2 border-red-500'>
-      <div>
-        <div className='flex items-center justify-center text-3xl'>
-          We are
-          <div className='ml-6 flex w-48 items-center'>
-            <ModSVG />
+    <div className={raleway.className}>
+      <div className='relative flex h-screen items-center justify-center'>
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ rotate: 360, scale: 1 }}
+          transition={{
+            type: 'spring',
+            stiffness: 260,
+            damping: 20,
+          }}
+          className='absolute left-0 right-0 -z-10 ml-auto mr-auto w-1/3 opacity-30'
+        >
+          <ModHeadSVG />
+        </motion.div>
+        <div>
+          <div className='flex items-center justify-center text-xl md:text-3xl'>
+            We are
+            <div className='md::w-48 ml-3 flex w-32 items-center md:ml-6'>
+              <ModSVG />
+            </div>
           </div>
-        </div>
-        <div className='mt-7 flex items-center justify-center text-3xl'>
-          We aim to build
-          <div className='ml-6 flex w-72 items-center'>
-            <CreativeSVG />
+          <div className='mt-7 flex items-center justify-center text-xl md:text-3xl'>
+            We aim to build
+            <div className='ml-3 flex w-52 items-center md:ml-6 md:w-72'>
+              <CreativeSVG />
+            </div>
           </div>
-        </div>
-        <div className='mt-7 text-center text-3xl'>
-          <span className='text-6xl font-extrabold'>LAB</span>oratory is where
-          the <span className='text-[#FB7E14]'>m</span>ad things started. 🤯
-        </div>
-        <div className='mt-7 rounded-md border-2 border-slate-500 text-center'>
-          Better Than Think
+          <div className='mt-7 text-center md:text-3xl'>
+            <div>
+              <span className='text-2xl font-extrabold md:text-6xl'>LAB</span>
+              oratory is where
+            </div>
+            <div>
+              the <span className='text-[#FB7E14]'>m</span>ad things started. 🤯
+            </div>
+          </div>
+          <div className='mt-7 rounded-md border-2 border-white bg-gradient-to-t from-[#D9D9D9] p-3 text-center text-xl md:text-3xl xl:p-5'>
+            Better Than Think
+          </div>
         </div>
       </div>
     </div>
