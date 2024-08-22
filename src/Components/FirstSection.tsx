@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useRef } from 'react';
-import Image from 'next/image';
 import { randomColor } from '@/utils/randomColor';
 import Ant from '@/Components/Ant/Ant';
 
@@ -11,7 +10,7 @@ export default function FirstSection({}: Props) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className='relative h-screen p-10 md:p-32 xl:p-80'>
+    <section className='relative h-screen p-10 md:p-32'>
       <div
         ref={containerRef}
         className='flex h-full w-full items-center justify-center overflow-hidden'
